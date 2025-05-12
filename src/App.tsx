@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Navigator from './components/Navigator.tsx'
 import './App.css'
 
