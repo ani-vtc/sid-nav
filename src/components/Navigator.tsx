@@ -23,7 +23,7 @@ const Navigator = () => {
     useEffect(() => {
         const fetchDatabases = async () => {
             try {
-                const res = await fetch(window.location.hostname === "localhost" ? "http://localhost:5050/api/databases" : "/api/databases");
+                const res = await fetch(window.location.hostname === "localhost" ? "http://localhost:5051/api/databases" : "/api/databases");
                 const data = await res.json();
                 const dbNames = data.map((row: any) => Object.values(row)[0]);
                 setDatabases(dbNames);
@@ -42,7 +42,7 @@ const Navigator = () => {
         if (!selectedDb) return;
         try {
             setLoading(true);
-            fetch(window.location.hostname === "localhost" ? `http://localhost:5050/api/tableNames/${selectedDb}` : `/api/tableNames/${selectedDb}`)
+            fetch(window.location.hostname === "localhost" ? `http://localhost:5051/api/tableNames/${selectedDb}` : `/api/tableNames/${selectedDb}`)
                 .then(res => res.json())
                 .then(data => {
                     const tableNames = data.map((row: any) => Object.values(row)[0]);
@@ -71,7 +71,7 @@ const Navigator = () => {
 
             // Build the URL with path parameters
             const baseUrl = window.location.hostname === "localhost" 
-                ? `http://localhost:5050/api/rows/${table}/${page}/${rowsPerPage}`
+                ? `http://localhost:5051/api/rows/${table}/${page}/${rowsPerPage}`
                 : `/api/rows/${table}/${page}/${rowsPerPage}`;
 
             // Build query parameters

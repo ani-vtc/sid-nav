@@ -15,7 +15,7 @@ COPY . .
 RUN npm run build
 
 # Expose the port the server runs on
-EXPOSE 5050
+EXPOSE 5051
 
 # Start the server
 CMD ["node", "server.js"]
